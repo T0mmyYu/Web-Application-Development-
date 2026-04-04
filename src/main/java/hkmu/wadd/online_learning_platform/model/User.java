@@ -1,19 +1,21 @@
 package hkmu.wadd.online_learning_platform.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "user_type", discriminatorType = DiscriminatorType.STRING)
 public class User {
 
-    @Id // 必須要加！
+    @Id
     private String username;
 
     private String password;
     private String email;
     private String phone;
+    @Column(name = "user_type", insertable = false, updatable = false)
+    private String userType;
 
     public User() {
     }
@@ -32,4 +34,6 @@ public class User {
     public void setEmail(String email) { this.email = email; }
     public String getPhone() { return phone; }
     public void setPhone(String phone) { this.phone = phone; }
+    public String getUserType() { return userType; }
+
 }

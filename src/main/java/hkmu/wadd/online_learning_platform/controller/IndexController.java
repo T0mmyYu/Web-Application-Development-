@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class IndexController {
-    // 同時支援 localhost:8080/ 和 localhost:8080/index
     @GetMapping({"/", "/index"})
     public String index() {
+        // 門口淨係負責帶人去 Login 頁
         return "redirect:/login";
     }
 }

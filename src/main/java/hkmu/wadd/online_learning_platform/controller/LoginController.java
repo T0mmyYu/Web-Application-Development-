@@ -14,16 +14,4 @@ public class LoginController {
         return "login";
     }
 
-    @PostMapping("/login")
-    public String handleLogin(@RequestParam String username,
-                              @RequestParam String password,
-                              ModelMap model) {
-
-        if ("admin".equals(username) && "1234".equals(password)) {
-            return "redirect:/home";
-        } else {
-            model.addAttribute("error", "Invalid username or password!");
-            return "login";
-        }
-    }
 }
