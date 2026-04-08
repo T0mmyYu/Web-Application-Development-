@@ -39,13 +39,28 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService(UserRepository userRepository) {
-        return username -> userRepository.findById(username)
-                .map(user -> org.springframework.security.core.userdetails.User
-                        .withUsername(user.getUsername())
-                        .password(user.getPassword())
-                        .roles(user.getUserType())
-                        .build())
-                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
+        return username -> {
+            System.out.println("---------- SECURITY DEBUG ----------");
+            System.out.println("1. 網頁傳入嚟嘅 Username: [" + username + "]");
+
+            return userRepository.findById(username)
+                    .map(user -> {
+                        System.out.println("2. ✅ Database 搵到人！");
+                        System.out.println("   - DB 入面嘅 Username: [" + user.getUsername() + "]");
+                        System.out.println("   - DB 入面嘅 Password: [" + user.getPassword() + "]");
+                        System.out.println("   - DB 入面嘅 Role: [" + user.getUserType() + "]");
+
+                        return org.springframework.security.core.userdetails.User
+                                .withUsername(user.getUsername())
+                                .password(user.getPassword()) // 呢度應該帶住 {noop}
+                                .roles(user.getUserType())
+                                .build();
+                    })
+                    .orElseThrow(() -> {
+                        System.out.println("2. ❌ 仆街喇，Database 根本搵唔到呢個人！");
+                        return new UsernameNotFoundException("User not found: " + username);
+                    });
+        };
     }
 
     @Bean
@@ -53,4 +68,5 @@ public class SecurityConfig {
         // 支援多種加密格式，包括你而家用緊嘅明文 {noop}
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
+
 }

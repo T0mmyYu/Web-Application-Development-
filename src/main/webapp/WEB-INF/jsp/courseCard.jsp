@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <style>
@@ -14,7 +14,6 @@
         justify-content: space-between;
         height: 180px;
     }
-
 
     .course-card:hover {
         transform: translateY(-5px);
@@ -53,12 +52,16 @@
 
 <div class="course-card">
     <div>
-        <h3 class="course-title">${course.name}</h3>
+        <div style="font-size: 0.85rem; color: #888;">${course.courseCode}</div>
+
+        <h3 class="course-title">${course.courseName}</h3>
+
         <p class="course-info">
-            <strong>ID:</strong> ${course.id}<br>
-            <strong>Instructor:</strong> ${course.instructor != null ? course.instructor : 'TBA'}
+            <strong>Section:</strong> <span style="color: #00b050; font-weight: bold;">${course.classSection}</span><br>
+
+            <strong>Instructor:</strong> ${course.lecturer.fullName}
         </p>
     </div>
 
-    <a href="/course/details?id=${course.id}" class="view-btn">Enter Course</a>
+    <a href="<c:url value='/course/details?id=${course.id}'/>" class="view-btn">Enter Course</a>
 </div>

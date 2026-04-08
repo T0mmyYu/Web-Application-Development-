@@ -1,5 +1,24 @@
-2026-03-30 08:08:20.999978Z database: flush
-org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/data/online_learning_db.mv.db [2.3.232/7]" [50000-232]
+2026-04-06 10:19:07.072058Z jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1624)
+	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:468)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-04-06 10:19:15.690151Z database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/onlinedb.mv.db [2.3.232/7]" [50000-232]
 	at org.h2.message.DbException.get(DbException.java:212)
 	at org.h2.message.DbException.convert(DbException.java:407)
 	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
@@ -32,19 +51,19 @@ org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/data/online_learning_db.mv.db [2.3.232/7]" [50000-232]
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/onlinedb.mv.db [2.3.232/7]" [50000-232]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	... 32 more
-Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/data/online_learning_db.mv.db [2.3.232/7]
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/onlinedb.mv.db [2.3.232/7]
 	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
 	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 26 more
-2026-03-30 08:09:41.667458Z database: flush
-org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/data/online_learning_db.mv.db [2.3.232/7]" [50000-232]
+2026-04-06 10:19:38.355933Z database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/onlinedb.mv.db [2.3.232/7]" [50000-232]
 	at org.h2.message.DbException.get(DbException.java:212)
 	at org.h2.message.DbException.convert(DbException.java:407)
 	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
@@ -77,19 +96,19 @@ org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/data/online_learning_db.mv.db [2.3.232/7]" [50000-232]
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/onlinedb.mv.db [2.3.232/7]" [50000-232]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	... 32 more
-Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/data/online_learning_db.mv.db [2.3.232/7]
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/onlinedb.mv.db [2.3.232/7]
 	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
 	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 26 more
-2026-03-30 08:10:16.923369Z database: flush
-org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/data/online_learning_db.mv.db [2.3.232/7]" [50000-232]
+2026-04-06 10:19:55.647341Z database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/onlinedb.mv.db [2.3.232/7]" [50000-232]
 	at org.h2.message.DbException.get(DbException.java:212)
 	at org.h2.message.DbException.convert(DbException.java:407)
 	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
@@ -122,18 +141,108 @@ org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/data/online_learning_db.mv.db [2.3.232/7]" [50000-232]
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/onlinedb.mv.db [2.3.232/7]" [50000-232]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	... 32 more
-Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/data/online_learning_db.mv.db [2.3.232/7]
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/onlinedb.mv.db [2.3.232/7]
 	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
 	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 26 more
-2026-03-31 09:45:25.292416Z jdbc[5]: exception
+2026-04-06 10:20:10.023354Z database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/onlinedb.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.intellij.database.remote.jdbc.helpers.JdbcHelperImpl.connect(JdbcHelperImpl.java:786)
+	at com.intellij.database.remote.jdbc.impl.RemoteDriverImpl.connect(RemoteDriverImpl.java:47)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/onlinedb.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 32 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/onlinedb.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 26 more
+2026-04-06 10:20:26.244126Z database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/onlinedb.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.intellij.database.remote.jdbc.helpers.JdbcHelperImpl.connect(JdbcHelperImpl.java:786)
+	at com.intellij.database.remote.jdbc.impl.RemoteDriverImpl.connect(RemoteDriverImpl.java:47)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/onlinedb.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 32 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/HKMU/Bachelor of Science with Honours in Computing/Year 3/Year 3 Sem 2/Web Application Development/Group Project/Online Learning Platform/onlinedb.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 26 more
+2026-04-06 10:20:53.611234Z jdbc[3]: exception
 java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
 	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1624)
 	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:468)
@@ -152,7 +261,7 @@ java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supporte
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-03-31 09:45:26.028235Z jdbc[6]: exception
+2026-04-06 10:21:07.018138Z jdbc[3]: exception
 java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
 	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1624)
 	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:468)
@@ -171,111 +280,7 @@ java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supporte
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-04-02 09:36:04.800740Z jdbc[3]: exception
-java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
-	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1624)
-	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:468)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
-	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-04-02 09:36:31.719417Z jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ROLES" not found; SQL statement:
-SELECT * FROM roles [42102-232]
-2026-04-02 09:36:51.392006Z jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ROLES" not found; SQL statement:
-DROP TABLE Roles [42102-232]
-2026-04-02 09:36:52.084079Z jdbc[4]: exception
-java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
-	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1624)
-	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:468)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
-	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-04-02 09:37:18.780458Z jdbc[5]: exception
-java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
-	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1624)
-	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:468)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
-	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-04-02 09:37:47.930256Z jdbc[6]: exception
-java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
-	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1624)
-	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:468)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
-	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-04-02 09:37:47.996825Z jdbc[6]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
-DROP TABLE USERS [42102-232]
-2026-04-02 09:37:48.283669Z jdbc[7]: exception
-java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
-	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1624)
-	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:468)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
-	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-04-03 07:39:11.157601Z jdbc[3]: exception
+2026-04-06 10:21:20.612502Z jdbc[3]: exception
 java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
 	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1624)
 	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:468)

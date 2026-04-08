@@ -10,7 +10,7 @@ public class User {
 
     @Id
     private String username;
-
+    private String fullName;
     private String password;
     private String email;
     private String phone;
@@ -20,11 +20,12 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password, String email, String phone) {
+    public User(String username, String password, String email, String phone, String fullName) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.phone = phone;
+        this.fullName = fullName;
     }
     public String getUsername() { return username; }
     public void setUsername(String username) { this.username = username; }
@@ -35,5 +36,6 @@ public class User {
     public String getPhone() { return phone; }
     public void setPhone(String phone) { this.phone = phone; }
     public String getUserType() { return userType; }
-
+    public void setFullName(String fullName) { this.fullName = fullName; }
+    public String getFullName() { return fullName; }
 }
