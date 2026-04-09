@@ -34,6 +34,12 @@
             color: #0d6efd;
             background-color: #f8f9fa;
         }
+        .poll-card {
+            transition: transform 0.2s;
+        }
+        .poll-card:hover {
+            transform: translateX(5px);
+        }
     </style>
 </head>
 <body>
@@ -56,12 +62,13 @@
 
         <hr>
 
+        <!-- Lectures Section -->
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h2><i class="bi bi-journal-bookmark-fill me-2"></i>Lectures</h2>
         </div>
 
         <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
-            <c:forEach var="lecture" items="${course.lectures}">
+            <c:forEach var="lecture" items="${lectures}">
                 <div class="col">
                     <a href="<c:url value='/lecture/view?id=${lecture.id}'/>" class="card h-100 shadow-sm lecture-card">
                         <div class="card-body">
@@ -87,15 +94,30 @@
             </sec:authorize>
         </div>
 
+        <!-- Polls Section -->
         <h2 class="mb-3"><i class="bi bi-bar-chart-fill me-2"></i>Active Polls</h2>
+
         <div class="list-group mb-5 shadow-sm">
-            <c:forEach var="poll" items="${course.polls}">
-                <a href="<c:url value='/poll/view?id=${poll.id}'/>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            <c:forEach var="poll" items="${polls}">
+                <a href="<c:url value='/poll/view?id=${poll.id}'/>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center poll-card">
                     <span><i class="bi bi-question-circle me-2"></i>${poll.question}</span>
                     <span class="badge bg-primary rounded-pill">Vote Now</span>
                 </a>
             </c:forEach>
+            <c:if test="${empty polls}">
+                <div class="list-group-item text-muted">No polls available for this course.</div>
+            </c:if>
         </div>
+
+        <!-- Create Poll Button (Only for LECTURER) -->
+        <sec:authorize access="hasRole('LECTURER')">
+            <div class="text-center mt-3 mb-5">
+                <a href="<c:url value='/poll/create?courseId=${course.id}'/>" class="btn btn-success btn-lg">
+                    <i class="bi bi-plus-circle"></i> Create Poll for this Course
+                </a>
+            </div>
+        </sec:authorize>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

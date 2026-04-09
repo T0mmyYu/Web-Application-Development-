@@ -38,4 +38,5 @@ public class User {
     public String getUserType() { return userType; }
     public void setFullName(String fullName) { this.fullName = fullName; }
     public String getFullName() { return fullName; }
+    public void setUserType(String userType) { this.userType = userType; }
 }

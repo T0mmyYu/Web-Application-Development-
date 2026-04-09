@@ -20,21 +20,14 @@
         gap: 12px;
         text-decoration: none !important;
         color: #333333 !important;
-
         font-weight: 600;
         font-size: 1.4rem;
-        font-family: 'Segoe UI', sans-serif;
     }
 
     .logo-img {
-        height: 35px;
+        height: 40px;
         width: auto;
-        display: block;
-    }
-
-    .header-logo:hover, .header-logo:visited {
-        color: #333333 !important;
-        text-decoration: none !important;
+        object-fit: contain;
     }
 
     .nav-menu {
@@ -57,90 +50,84 @@
     }
 
     .nav-link:hover {
-        color: white;
-        text-underline-offset: 5px;
+        color: #007bff;
         text-decoration: underline;
     }
 
-    .logout-btn {
+    .logout-form {
+        margin: 0;
+        display: inline;
+    }
+
+    .logout-btn-submit {
         background-color: #d9534f;
         color: white;
         padding: 6px 12px;
         border-radius: 4px;
-        text-decoration: none;
+        border: none;
+        cursor: pointer;
         font-size: 0.85rem;
+        font-family: inherit;
     }
 
-    .logout-btn:hover {
+    .logout-btn-submit:hover {
         background-color: #c9302c;
     }
-    .logout-form {
-            margin: 0;
-            display: inline;
-        }
-        .logout-btn-submit {
-            background-color: #d9534f;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 4px;
-            border: none;
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-family: inherit;
-        }
-        .logout-btn-submit:hover {
-            background-color: #c9302c;
-        }
-        .header-logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            gap: 10px;
-            color: inherit;
-        }
-
-        .logo-img {
-            height: 40px;
-            width: auto;
-            object-fit: contain;
-        }
-
-    </style>
+</style>
 
 <header class="main-header">
-    <a href="${pageContext.request.contextPath}/home" class="header-logo">
+    <a href="${pageContext.request.contextPath}/" class="header-logo">
         <img src="<c:url value='/images/logo.png'/>" alt="Logo" class="logo-img">
         Online Learning Platform
     </a>
 
     <nav>
         <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="${pageContext.request.contextPath}/home" class="nav-link">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a href="${pageContext.request.contextPath}/courses" class="nav-link">My Courses</a>
-            </li>
 
-            <li class="nav-item">
-                <span style="color: #666; font-size: 0.9rem; margin-right: 10px;">
-                    Hello, <strong style="color: #333;"><sec:authentication property="principal.username" /></strong>
+            <sec:authorize access="isAuthenticated()">
+                <li class="nav-item">
+                    <a href="${pageContext.request.contextPath}/home" class="nav-link">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="${pageContext.request.contextPath}/courses" class="nav-link">My Courses</a>
+                </li>
+            </sec:authorize>
 
-                    <sec:authorize access="hasRole('TEACHER')">
-                        <span style="background: #e3f2fd; color: #1976d2; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem;">Teacher</span>
-                    </sec:authorize>
-                    <sec:authorize access="hasRole('STUDENT')">
-                        <span style="background: #f1f8e9; color: #388e3c; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem;">Student</span>
-                    </sec:authorize>
-                </span>
-            </li>
+            <sec:authorize access="isAuthenticated()">
+                <li class="nav-item">
+                    <span style="color: #666; font-size: 0.9rem;">
+                        Hello, <strong style="color: #333;">
+                            <sec:authentication property="principal.username" />
+                        </strong>
+                        <sec:authorize access="hasRole('TEACHER')">
+                            <span style="background: #e3f2fd; color: #1976d2; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem; margin-left: 5px;">Teacher</span>
+                        </sec:authorize>
+                        <sec:authorize access="hasRole('STUDENT')">
+                            <span style="background: #f1f8e9; color: #388e3c; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem; margin-left: 5px;">Student</span>
+                        </sec:authorize>
+                    </span>
+                </li>
+            </sec:authorize>
 
-            <li class="nav-item">
-                <form action="${pageContext.request.contextPath}/logout" method="post" class="logout-form">
-                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                    <button type="submit" class="logout-btn-submit">Logout</button>
-                </form>
-            </li>
+            <!-- 未登入顯示 Login 連結 -->
+            <sec:authorize access="isAnonymous()">
+                <li class="nav-item">
+                    <a href="${pageContext.request.contextPath}/login" class="nav-link" style="color: #007bff;">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="${pageContext.request.contextPath}/register" class="nav-link" style="color: #28a745;">Register</a>
+                </li>
+            </sec:authorize>
+
+
+            <sec:authorize access="isAuthenticated()">
+                <li class="nav-item">
+                    <form action="${pageContext.request.contextPath}/logout" method="post" class="logout-form">
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        <button type="submit" class="logout-btn-submit">Logout</button>
+                    </form>
+                </li>
+            </sec:authorize>
         </ul>
     </nav>
 </header>

@@ -26,7 +26,7 @@ public class Poll {
     @JoinColumn(name = "course_id")
     private Course course;
 
-    protected Poll() {}
+    public Poll() {}  // 改為 public
 
     public Long getId() {
         return id;

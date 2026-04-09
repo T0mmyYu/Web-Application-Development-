@@ -21,17 +21,22 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .dispatcherTypeMatchers(jakarta.servlet.DispatcherType.FORWARD).permitAll()
-                        .requestMatchers("/login", "/static/**", "/resources/**", "/error").permitAll()
+                        // 放行首頁 - 任何人都可以睇
+                        .requestMatchers("/", "/index", "/home", "/login", "/register",
+                                "/static/**", "/resources/**", "/error",
+                                "/images/**", "/uploads/**", "/poll").permitAll()
+                        // 其他頁面需要登入
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/home", true) // 登入成功後跳去邊
+                        .defaultSuccessUrl("/home", true)
                         .permitAll()
                 )
                 .logout(logout -> logout
-                        .logoutSuccessUrl("/login?logout")
+                        .logoutSuccessUrl("/home?logout=true")  // 改為去 home page
                         .permitAll()
+
                 );
 
         return http.build();
@@ -39,34 +44,17 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService(UserRepository userRepository) {
-        return username -> {
-            System.out.println("---------- SECURITY DEBUG ----------");
-            System.out.println("1. 網頁傳入嚟嘅 Username: [" + username + "]");
-
-            return userRepository.findById(username)
-                    .map(user -> {
-                        System.out.println("2. ✅ Database 搵到人！");
-                        System.out.println("   - DB 入面嘅 Username: [" + user.getUsername() + "]");
-                        System.out.println("   - DB 入面嘅 Password: [" + user.getPassword() + "]");
-                        System.out.println("   - DB 入面嘅 Role: [" + user.getUserType() + "]");
-
-                        return org.springframework.security.core.userdetails.User
-                                .withUsername(user.getUsername())
-                                .password(user.getPassword()) // 呢度應該帶住 {noop}
-                                .roles(user.getUserType())
-                                .build();
-                    })
-                    .orElseThrow(() -> {
-                        System.out.println("2. ❌ 仆街喇，Database 根本搵唔到呢個人！");
-                        return new UsernameNotFoundException("User not found: " + username);
-                    });
-        };
+        return username -> userRepository.findById(username)
+                .map(user -> org.springframework.security.core.userdetails.User
+                        .withUsername(user.getUsername())
+                        .password(user.getPassword())
+                        .roles(user.getUserType())
+                        .build())
+                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
     }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        // 支援多種加密格式，包括你而家用緊嘅明文 {noop}
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
-
 }
